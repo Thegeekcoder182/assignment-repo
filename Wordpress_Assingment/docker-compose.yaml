@@ -6,7 +6,7 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: some_password_of_ur_choice
+      MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: m_wordpress
       MYSQL_USER: wordpress_user
       MYSQL_PASSWORD: wordpress_user_password
