@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  mysql_db:
+    container_name: mysql_container
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: some_password_of_ur_choice
+      MYSQL_DATABASE: m_wordpress
+      MYSQL_USER: wordpress_user
+      MYSQL_PASSWORD: wordpress_user_password
+    volumes:
+      - mysql:/var/lib/mysql
+
+  wordpress:
+    depends_on:
+      - mysql_db
+    build:
+      context: ./my-wordpress
+    restart: always
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql_db:3306
+      WORDPRESS_DB_USER: wordpress_user
+      WORDPRESS_DB_PASSWORD: wordpress_user_password
+      WORDPRESS_DB_NAME: m_wordpress
+    volumes:
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  custom_network:
+    driver: bridge
+
+volumes:
+  mysql: {}
