@@ -22,9 +22,9 @@ Ready to Set Sail
 
 Docking Our Ship: We're going to start by grabbing a copy of this project and setting up our environment.
 
-Run this command to clone the project to your local machine (replace <repository-url> with the repository URL): git clone <repository-url>
+Run this command to clone the project to your local machine (replace <repository-url> with the repository URL): git clone {repository-url}
 
-Now navigate to the project directory:cd <project-directory>
+Now navigate to the project directory:cd {project-directory}
 
 
 
