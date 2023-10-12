@@ -16,20 +16,25 @@ Our project is all about making WordPress as cool and efficient as it can be. We
 Getting Set Up
 
 Prerequisites
-Before we set sail, make sure you have Docker installed on your computer. It's your ticket to the world of containers.
+Before we set sail, make sure you have Docker installed on your computer. It's your ticket to the world of containers. 
+
+You can find docker desktop at this link: https://www.docker.com/products/docker-desktop/
 
 Ready to Set Sail
-Docking Our Ship: We're going to start by grabbing a copy of this project and setting up our environment.
 Run this command to clone the project to your local machine (replace <repository-url> with the repository URL): git clone {repository-url}
+
 Now navigate to the project directory:cd {project-directory}
 
 
-
 Sailing into Docker Waters:
-It's time to embark on our Docker adventure:
-Setting Sail: We'll fire up our WordPress ship and database.
-Run this command to build the Docker images and set sail with our containers:docker-compose up --build
-Now, open your web browser and steer it to http://localhost:8000. You've arrived at your very own WordPress island.
+Run this command to build the Docker images and set sail with our containers: docker-compose up --build
+
+Edit: To use the above command you need to use your previously created wordpress image and set up the directry and all other neceserry information
+inside the docker-compose.yaml file. Refer to this document for reference: https://docs.docker.com/compose/
+
+Now, open your web browser and steer it to http://localhost:8000. 
+
+You've now arrived at your very own WordPress island.
 
 
 Optimizing the Heart of WordPress:
@@ -39,7 +44,25 @@ We didn't stop at simple containerization; Dive into our Database Optimization G
 In the Know and Handy Tips:
 Staying Safe: While we're not automating database backups in this journey, remember to schedule regular backups for your precious data.
 
-A Healthy Ship: We've added health checks to our WordPress container to ensure it's always on its toes. If you need to adjust the checks, the Docker Compose file is your friend.
+A Healthy Ship: We've added health checks to our WordPress container to ensure it's always on its toes and to keep its ehath in check.
+
+Here i have added some commands which can be useful for you moving forward
+
+Step 1: Clone the repo
+git clone https://github.com/trulymittal/wordpress-docker-compose.git
+
+Step 2: cd into the repo
+cd wordpress-docker-compose
+
+Step 3: Run the containers
+docker-compose up -d
+
+To stop the containers
+docker-compose down
+
+To stop the containers and remove volumes
+docker-compose down --volumes
+
 
 
 Conclusion:
